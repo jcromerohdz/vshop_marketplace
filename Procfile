@@ -1,1 +1,1 @@
-web: gunicorn VShop.wsgi
+web: python manage.py collectstatic && gunicorn VShop.wsgi
