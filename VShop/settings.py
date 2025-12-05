@@ -148,3 +148,5 @@ JAZZMIN_SETTINGS = {
     "copyright": "VShop - All Right Reserverd 2025",
     # "order_with_respet_to": ["core", "userauths", "transactions", "addons", "blog"],
 }
+
+CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-5d32.up.railway.app']
