@@ -1,0 +1,75 @@
+{% extends 'partials/base.html' %} 
+{% load static %} 
+{% block title %} Home {% endblock title %} 
+{% block content %}
+<!-- main image & intro -->
+<section id="intro">
+  <div class="container-lg">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-5 text-center text-md-start">
+        <h1>
+          <div class="display-2">VShop</div>
+          <div class="display-5 text-muted">Accesorios en tendencia</div>
+        </h1>
+        <p class="lead my-4 text-muted">{{msg}}</p>
+        <a href="#" class="btn btn-secondary btn-lg text-white">Productos</a>
+        <!-- open sidebar / offcanvas -->
+        <a
+          href="#"
+          class="d-block mt-3"
+          data-bs-toggle="offcanvas"
+          role="button"
+          aria-controls="sidebar"
+        >
+          Mas accesorios
+        </a>
+      </div>
+      <div class="col-md-5 text-center d-none d-md-block">
+        <!-- tooltip -->
+        <span
+          class="tt"
+          data-bs-placement="bottom"
+          title="Net Ninja Pro book cover"
+        >
+          <img
+            class="img-fluid rounded"
+            src="{% static '/img/image_1.jpg' %}"
+            alt="accesorios"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pricing plans -->
+<section id="pricing" class="bg-light mt-5">
+  <div class="container-lg">
+    <div class="text-center">
+      <h2>Productos</h2>
+      <p class="lead text-muted">Precio de articulos en pesos Mexicanos!.</p>
+    </div>
+    <div class="row my-5 g-3 align-items-center justify-content-center">
+      {% for item in items %}
+      <div class="col-10 col-md-auto col-lg-4 col-xl-3">
+        <div class="card" style="width: 19rem">
+          <img
+            src="{{ item.image.url }}"
+            class="card-img-top"
+            alt="{{item.name}}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">{{item.description}}.</p>
+
+            <p class="display-4 my-4 text-primary fw-bold">${{item.price}}</p>
+            <a href="{% url 'detail' item.pk %}" class="btn btn-primary">Detalle</a>
+          </div>
+        </div>
+      </div>
+     
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content%}
