@@ -11,7 +11,7 @@ def index(request):
     return render(request, "core/index.html", context)
 
 def home(request):
-    items = Item.objects.filter(is_sold=False)[0:6]
+    items = Item.objects.filter(is_sold=False)[0:20]
     categories = Category.objects.all()
 
     context = {
